@@ -10,8 +10,7 @@ fi
 readonly PATRONI_SCOPE=${PATRONI_SCOPE:-batman}
 PATRONI_NAMESPACE=${PATRONI_NAMESPACE:-/service}
 readonly PATRONI_NAMESPACE=${PATRONI_NAMESPACE%/}
-readonly DOCKER_IP=$(hostname --ip-address)
-
+readonly DOCKER_IP=${HOST_IP}
 case "$1" in
     haproxy)
         haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -D
